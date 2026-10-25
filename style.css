@@ -213,6 +213,37 @@ textarea { resize: vertical; }
 .switch-row { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink-soft); }
 .switch-row input { width: auto; }
 
+/* 用户按钮 */
+.user-chip {
+  background: rgba(255,255,255,.15); color: #fff; border: 1px solid rgba(255,255,255,.35);
+  border-radius: 999px; padding: 7px 14px; font-size: 13px; font-weight: 600; cursor: pointer;
+  max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.user-chip:hover { background: rgba(255,255,255,.28); }
+
+/* 角色徽章 */
+.role-badge {
+  font-size: 12px; font-weight: 600; color: var(--teal-700);
+  background: var(--teal-50); border: 1px solid #99f6e4; padding: 4px 10px; border-radius: 999px;
+}
+
+/* 登录弹窗 */
+.auth-tabs { display: flex; gap: 8px; margin-bottom: 16px; }
+.auth-tab {
+  flex: 1; padding: 9px; border: 1px solid var(--line); background: #fff; border-radius: var(--radius-sm);
+  font-size: 14px; cursor: pointer; color: var(--ink-soft);
+}
+.auth-tab.active { background: var(--teal-600); color: #fff; border-color: var(--teal-600); }
+.auth-msg { color: var(--danger); font-size: 13px; min-height: 18px; margin: 0 0 4px; }
+.muted.center { text-align: center; margin-top: 10px; }
+
+/* 成员管理 */
+.invite-row { display: flex; align-items: center; gap: 10px; margin: 12px 0 4px; }
+.invite-row code { flex: 1; background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; font-size: 14px; }
+.project-list .m-right { display: flex; align-items: center; gap: 8px; }
+.role-sel { padding: 6px 8px; border-radius: 8px; border: 1px solid var(--line); font-size: 13px; }
+
+
 /* Toast */
 .toast {
   position: fixed; left: 50%; bottom: 84px; transform: translateX(-50%);
