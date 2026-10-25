@@ -66,7 +66,7 @@
 
   // ================= 认证 =================
   async function boot() {
-    if (!cloud) { toast('云 SDK 未加载，请检查网络'); return; }
+    if (!cloud) { toast('云服务未加载，请刷新页面或检查网络'); showLogin(); return; }
     const { data } = await guard(() => cloud.auth.getSession());
     if (data) onSignedIn(data); else showLogin();
   }
@@ -85,6 +85,7 @@
 
   async function sendCode() {
     const msg = $('#authMsg'); msg.textContent = '';
+    if (!cloud) { msg.textContent = '云服务未就绪，请刷新页面重试'; return; }
     let arg;
     if (authMode === 'email') {
       const email = $('#auth-email').value.trim();
@@ -113,6 +114,7 @@
   async function submitAuth(e) {
     e.preventDefault();
     const msg = $('#authMsg'); msg.textContent = '';
+    if (!cloud) { msg.textContent = '云服务未就绪，请刷新页面重试'; return; }
     if (!pendingOtp) { msg.textContent = '请先获取验证码'; return; }
     const token = $('#auth-code').value.trim();
     if (!token) { msg.textContent = '请输入验证码'; return; }

@@ -294,8 +294,9 @@
 
   <div id="toast" class="toast" hidden></div>
 
-  <!-- 云 SDK（公开 CDN，@dev 通道）-->
-  <script src="https://cdn.jsdelivr.net/npm/@tencent-ai/workbuddy-cloud-sdk@dev/lib/index.global.js"></script>
+  <!-- 云 SDK：本地优先（预览/内网/离线可用），缺失时回退 CDN -->
+  <script src="vendor/workbuddy-cloud-sdk.js"></script>
+  <script>window.WorkBuddyCloud||document.write('<script src="https://cdn.jsdelivr.net/npm/@tencent-ai/workbuddy-cloud-sdk@dev/lib/index.global.js"><\/script>');</script>
   <script src="config.js"></script>
   <script src="vendor/chart.umd.min.js"></script>
   <script>window.Chart||document.write('<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"><\/script>');</script>
